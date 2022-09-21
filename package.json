@@ -1,5 +1,5 @@
 {
-  "name": "lw-helpers",
+  "name": "helpers",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -9,12 +9,13 @@
   ],
   "scripts": {
     "tsc": "tsc",
-    "build": "rm -rf dist && npm run tsc"
+    "build": "rm -rf dist && npm run tsc",
+    "npm:publish": "npm run build && npm publish"
   },
   "author": "Luca Brognara",
   "license": "ISC",
   "homepage": "https://github.com/lucabro81/math-helper#readme",
-  "dependencies": {
-    "typescript": "^3.6.3"
+  "devDependencies": {
+    "typescript": "^4.8.3"
   }
 }

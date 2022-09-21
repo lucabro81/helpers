@@ -5,7 +5,7 @@
  * @param obj2
  * @returns {boolean}
  */
-export let equals = (obj1: any, obj2: any): boolean => {
+export const equals = (obj1: any, obj2: any): boolean => {
     return JSON.stringify(obj1) === JSON.stringify(obj2);
 };
 
@@ -14,7 +14,7 @@ export let equals = (obj1: any, obj2: any): boolean => {
  * @param {string} date
  * @return {number}
  */
-export let getAge = (date: string): number => {
+export const getAge = (date: string): number => {
     if (date === '') {
         return 0;
     }
@@ -34,7 +34,7 @@ export let getAge = (date: string): number => {
  * @param {number} digits
  * @return {string}
  */
-export let getZeroNumber = (value: number | string, digits: number = 2): string => {
+export const getZeroNumber = (value: number | string, digits: number = 2): string => {
     let s: string = value + '';
     while (s.length < digits) {
         s = '0' + s;
@@ -47,7 +47,7 @@ export let getZeroNumber = (value: number | string, digits: number = 2): string 
  * @param s
  * @returns {string}
  */
-export let cleanHTML = (s: string): string => {
+export const cleanHTML = (s: string): string => {
     return (s) ? s.replace(/<[^>]*>/g, '') : '';
 };
 
@@ -56,7 +56,7 @@ export let cleanHTML = (s: string): string => {
  * @param obj
  * @returns {boolean}
  */
-export let isEmpty = (obj: any) => {
+export const isEmpty = (obj: any) => {
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
             return false;
@@ -71,7 +71,7 @@ export let isEmpty = (obj: any) => {
  * @param max
  * @returns {number}
  */
-export let randomIntFromInterval = (min: number, max: number) => {
+export const randomIntFromInterval = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
@@ -83,7 +83,7 @@ export let randomIntFromInterval = (min: number, max: number) => {
  * @param if_value
  * @returns {Array<string>}
  */
-export let keysFromObj = (obj: any, if_value?: any): Array<string> => {
+export const keysFromObj = (obj: any, if_value?: any): Array<string> => {
 
     let keys: Array<string> = [];
 
@@ -103,7 +103,7 @@ export let keysFromObj = (obj: any, if_value?: any): Array<string> => {
  * @param array
  * @returns {Array<any>}
  */
-export let deepCloneArray = (array: Array<any>): Array<any> => {
+export const deepCloneArray = (array: Array<any>): Array<any> => {
     return array.map(a => Object.assign({}, a));
 };
 
@@ -112,7 +112,7 @@ export let deepCloneArray = (array: Array<any>): Array<any> => {
  * @param obj
  * @returns {boolean}
  */
-export let isNullOrUndefined = (obj: any): boolean => {
+export const isNullOrUndefined = (obj: any): boolean => {
     return isUndefined(obj) || isNull(obj);
 };
 
@@ -121,7 +121,7 @@ export let isNullOrUndefined = (obj: any): boolean => {
  * @param obj
  * @returns {boolean}
  */
-export let notNullOrUndefined = (obj: any): boolean => {
+export const notNullOrUndefined = (obj: any): boolean => {
     return !isNullOrUndefined(obj);
 };
 
@@ -130,7 +130,7 @@ export let notNullOrUndefined = (obj: any): boolean => {
  * @param obj
  * @returns {boolean}
  */
-export let isNull = (obj: any): boolean => {
+export const isNull = (obj: any): boolean => {
     return obj === null;
 };
 
@@ -139,7 +139,7 @@ export let isNull = (obj: any): boolean => {
  * @param obj
  * @returns {boolean}
  */
-export let notNull = (obj: any): boolean => {
+export const notNull = (obj: any): boolean => {
     return !isNull(obj);
 };
 
@@ -148,7 +148,7 @@ export let notNull = (obj: any): boolean => {
  * @param obj
  * @returns {boolean}
  */
-export let isUndefined = (obj: any): boolean => {
+export const isUndefined = (obj: any): boolean => {
     return obj === undefined;
 };
 
@@ -157,7 +157,7 @@ export let isUndefined = (obj: any): boolean => {
  * @param obj
  * @returns {boolean}
  */
-export let notUndefined = (obj: any): boolean => {
+export const notUndefined = (obj: any): boolean => {
     return !isUndefined(obj);
 };
 
@@ -166,7 +166,7 @@ export let notUndefined = (obj: any): boolean => {
  * @param str
  * @returns {string}
  */
-export let capitalizeFirstLetter = (str: string) => {
+export const capitalizeFirstLetter = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
@@ -175,7 +175,7 @@ export let capitalizeFirstLetter = (str: string) => {
  * @param obj
  * @returns {Array}
  */
-export let objToArray = (obj: any) => {
+export const objToArray = (obj: any) => {
 
     let array = [];
 
@@ -200,7 +200,7 @@ export let objToArray = (obj: any) => {
  * @param length
  * @returns {Array<T>}
  */
-export let createArrWith = <T extends {}>(init_value: T, length: number): Array<T> => {
+export const createArrWith = <T extends {}>(init_value: T, length: number): Array<T> => {
     return Array.from({length: length}, () => init_value);
 };
 
@@ -211,6 +211,89 @@ export let createArrWith = <T extends {}>(init_value: T, length: number): Array<
  * @param step
  * @returns {Array<number>}
  */
-export let range = (start: number, stop: number, step: number): Array<number> => {
+export const range = (start: number, stop: number, step: number): Array<number> => {
     return Array.from({length: (stop - start) / step}, (_, i) => start + (i * step));
 };
+
+export const pascalCase = (s:string):string => {
+    return s.replace(/(\w)(\w*)/g, (g0,g1,g2) => g1.toUpperCase() + g2.toLowerCase()).replace(/[\s_-]/g, '')
+}
+
+/**
+ * Split an array into multiple sub array
+ * @param arr
+ * @param n
+ * @returns {*}
+ */
+export const splitArr = <T = any>(arr: Array<T>, n): Array<Array<T>> => {
+    return arr.reduce(function (a: Array<Array<T>>, i: T) {
+        if (a[a.length - 1].length >= arr.length / n) {
+            a.push([])
+        }
+        a[a.length - 1].push(i);
+        return a;
+    }, [[]])
+}
+
+/**
+ * Generate unique ID ()
+ * @param length
+ * @returns {string}
+ */
+export const uniqueID = (length = 0): string => {
+    let id = "";
+    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
+    const _length = length || 8;
+    for (let i = 0; i < _length; i++) {
+        id += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return id;
+}
+
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+export const getRandomArbitrary = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+export const getRandomInt = (min: number, max: number): number => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/**
+ *
+ * @param timestamp
+ * @param separator
+ */
+export const dateFromTimestamp = (timestamp, separator = '/') => {
+    const date = new Date(parseInt(timestamp) * 1000);
+    const month = date.getMonth().toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${day}${separator}${month}${separator}${date.getFullYear()}`;
+}
+
+/**
+ *
+ * @param obj
+ */
+export const isObjEmpty = (obj) => {
+    return Object.keys(obj).length === 0;
+}
+
+/**
+ *
+ * @param obj
+ */
+export const getProps = (obj) => {
+    return Object.keys(obj);
+}
