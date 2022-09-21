@@ -1,6 +1,6 @@
 {
-  "name": "helpers",
-  "version": "1.0.0",
+  "name": "generic-helpers",
+  "version": "1.0.2",
   "description": "",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -10,7 +10,9 @@
   "scripts": {
     "tsc": "tsc",
     "build": "rm -rf dist && npm run tsc",
-    "npm:publish": "npm run build && npm publish"
+    "npm:publish:patch": "npm run build && npm version patch --force && npm publish --access public",
+    "npm:publish:minor": "npm run build && npm version minor --force && npm publish --access public",
+    "npm:publish:major": "npm run build && npm version major --force && npm publish --access public"
   },
   "author": "Luca Brognara",
   "license": "ISC",
