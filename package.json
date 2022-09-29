@@ -1,12 +1,13 @@
 {
   "name": "generic-helpers",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "type": "module",
   "scripts": {
     "tsc": "tsc",
     "build": "rm -rf dist && npm run tsc",
@@ -19,5 +20,8 @@
   "homepage": "https://github.com/lucabro81/math-helper#readme",
   "devDependencies": {
     "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "generic-helpers": "^1.0.2"
   }
 }
