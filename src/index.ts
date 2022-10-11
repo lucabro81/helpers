@@ -1,2 +1,2 @@
-export * from './generic';
-export * from './cordova';
+export * from './generic.js';
+export * from './cordova.js';
