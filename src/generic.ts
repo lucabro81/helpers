@@ -325,3 +325,14 @@ export const tokenize = (text: string, spaces?: true): Array<string> => {
 
     return parts.filter(p => p.length > 0)
 }
+
+/**
+ * Es.:
+ * 	const formatString = pipe(toUpperCase, removeSpaces, addExclamation)
+ * 	formatString("this an input text")
+ *
+ * @param fns
+ * @returns {function(*): *}
+ */
+export const pipe = <T, R>(...fns: Array<Function>) => (input: T): R => fns.reduce(
+  (acc, fn) => fn(acc), input)
